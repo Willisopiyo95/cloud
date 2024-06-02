@@ -24,6 +24,11 @@ app.post('/upload', upload.array('images'), async(req, res) => {
                 message: `Upload ${fileName}`,
                 content: content
             }, { headers: { Authorization: `token ${hp_ELiJWgvmOyQ7XBYTEIt0WoeGlNE4PB0WhLgR}` } });
+            fs.unlinkSync(filePath);
         }
+        res.json({ success: true });
+    } catch (error) {
+        console.log('Server is running on https://localhost:3000');
     }
+
 })
